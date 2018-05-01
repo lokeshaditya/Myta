@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel="stylesheet" href="textbook.css">
+		 <script type="text/javascript">
+			
+			function loadFile(o)
+			{
+				var fr = new FileReader();
+				fr.onload = function(e)
+					{
+						showDataFile(e, o);
+					};
+				fr.readAsText(o.files[0]);
+			}
+
+			function showDataFile(e, o)
+			{
+				window.s = e.target.result;
+			   
+				window.data = JSON.parse(s);
+				
+				var qid = 0;
+				for(var i=0;i<data.gradesList.length;i++){
+					document.getElementById("dat").innerHTML = document.getElementById("dat").innerHTML.
+																concat("<li>"+data.gradesList[i].name+"</li>");
+					
+					for(var j=0;j<data.gradesList[i].subjectList.length;j++){
+						document.getElementById("dat").innerHTML = document.getElementById("dat").innerHTML.
+																concat("<li><pre>  "+data.gradesList[i].subjectList[j].name+"</li></pre>");
+						
+						for(var z=0;z<data.gradesList[i].subjectList[j].chapterList.length;z++){
+							qid = parseInt("".concat(i,j,z));
+							document.getElementById("dat").innerHTML = document.getElementById("dat").innerHTML.
+																concat("<li id="+qid+" onclick=\"displayqna("+qid+")\"><pre>    "+data.gradesList[i].subjectList[j].chapterList[z].name+"</li></pre>",);
+																
+						}
+						
+					}
+				}
+			}
+			function displayqna(aa){
+				document.getElementById("qna").innerHTML = "";
+				a = parseInt(aa);
+				var k = a%10;
+				a = a/10;
+				a = parseInt(a);
+				var j = (a%10);
+				a = a/10;
+				a = parseInt(a);
+				var i = a;
+				console.log(i,j,k);
+				
+				for(var x=0;x<data.gradesList[i].subjectList[j].chapterList[k].questionList.length;x++){
+					document.getElementById("qna").innerHTML = document.getElementById("qna").innerHTML.
+					concat(data.gradesList[i].subjectList[j].chapterList[k].questionList[x].question,"<br>");
+					
+					document.getElementById("qna").innerHTML = document.getElementById("qna").innerHTML.
+					concat(data.gradesList[i].subjectList[j].chapterList[k].questionList[x].answer,"<br><hr>");
+				}
+				document.getElementById("qna").innerHTML = document.getElementById("qna").innerHTML.
+				concat("<input type=\"button\" value=\"add question \" onclick=\"disqsndiv("+aa+")\">");
+			}
+			
+			function disqsndiv(aa){
+				console.log("inside disqsndiv",aa);
+				document.getElementById("askqna").innerHTML = "<form> Enter Question here:<textarea rows=\"5\" cols=\"50\" id=\"qsn\"></textarea><br>".
+				concat(" Enter Answer here:<textarea rows=\"5\" cols=\"50\" id=\"ans\"></textarea><br> <input type=\"button\" value=\"Add\" onclick=\"addqsn("+aa+")\">");
+				
+			}
+			function addqsn(bb){
+				
+				window.s1 = document.getElementById("qsn").value;
+				window.s2 = document.getElementById("ans").value;
+				console.log(s1);
+				console.log(s2);
+				//document.write("Select a JSON file to read <input type=\"file\" onchange=loadFile("+this+")\">");
+				a = parseInt(bb);
+				var k = a%10;
+				a = a/10;
+				a = parseInt(a);
+				var j = (a%10);
+				a = a/10;
+				a = parseInt(a);
+				var i = a;
+				//console.log(""i,j,k);
+				
+				data.gradesList[i].subjectList[j].chapterList[k].questionList.push({"question":s1,"answer":s2});
+				window.alert("question added successfully\n",s1+"</br>"+s2);
+				
+				document.getElementById("qna").innerHTML = "";
+				document.getElementById("askqna").innerHTML = "";
+				
+			}
+			var i=0;
+			window.usnarr = [100];
+			window.pwdarr = [100];
+			function regestrarion(){
+				var usname = document.getElementById("usname").value;
+				var pass = document.getElementById("pass").value;
+				var cpass = document.getElementById("cpass").value;
+				
+				
+				if(pass == "" || usname == "" || cpass == ""){
+					window.alert("please enter something");
+				}
+				else if(pass === cpass){
+					
+					usnarr[i] = usname;
+					pwdarr[i] = pass;
+					document.getElementById("login").innerHTML = "<h3>User created successfully</h3>".concat("<h3>Login here</h3><br>Username:<input type=\"text\" id=\"usid\" ><br>Password:<input type=\"password\" id=\"uspwd\"><br><input type=\"button\" value=\"login\" id=\"log\"onclick=\"login()\"><input type=\"button\" value=\"regester\" id=\"log\" onclick=\"regdiv()\" >  ")
+					i++;
+					console.log(i);
+				}
+				else{
+					window.alert("password did not match. please try again." );
+				}
+			}
+			function logindiv(){
+				document.getElementById("login").innerHTML = "<h3>Login here</h3><br>Username:<input type=\"text\" id=\"usid\" ><br>Password:<input type=\"password\" id=\"uspwd\"><br><input type=\"button\" id=\"log\" value=\"login\" onclick=\"login()\">".
+				concat("	<input type=\"button\" value=\"regester\" id=\"log\" onclick=\"regdiv()\">");
+			}
+			function regdiv(){
+				console.log("inside regdiv");
+				document.getElementById("login").innerHTML = "<div id = \"login\">".concat(
+						"<h2>Hello MYTA Business Solutions</h2>",
+						"<h3>Kindly regester here</h3>",
+						"<input type=\"text\" id=\"usname\" placeholder=\"Username here\"><br>",
+						"<input type=\"password\" id=\"pass\" placeholder=\"Your password here\"><br>",
+						"<input type=\"password\" id=\"cpass\" placeholder=\"confirm password here\"><br>",
+						"<input type=\"button\" onclick=\"regestrarion()\" id=\"log\" value=\"regester\"><br>",
+						"Already regestered? click  <a onclick=\"logindiv()\">HERE</a> to login.</div>");
+				document.getElementById("qna").innerHTML ="";
+				document.getElementById("main").innerHTML ="";
+			}
+			function login(){
+				console.log("welcome to login");
+				
+				var n = document.getElementById("usid").value;
+				var p = document.getElementById("uspwd").value;
+				if(n == "" || p == ""){
+					window.alert("kindly enter username and password");
+				}
+				for(var j=0;j<usnarr.length;j++){
+					if(usnarr[j] == n){
+						if(pwdarr[j] == p){
+							document.getElementById("main").innerHTML = "Select a JSON file to read <input type=\"file\" onchange=\"loadFile(this)\">";
+							break;
+						}
+					}
+					if(j == usnarr.length-1){
+						window.alert("user not found. please kindly regesterand then login ");
+					}
+				}
+			document.getElementById("qna").innerHTML ="";
+			//document.getElementById("").innerHTML ="";
+			}
+        </script>
+	</head>
+    <body>
+		<div id = "login">
+			<h2>Hello MYTA Business Solutions</h2>
+			<h3>Kindly regester here</h3>
+			<input type="text" id="usname" placeholder="Username here"><br>
+			<input type="password" id="pass" placeholder="Your password here"><br>
+			<input type="password" id="cpass" placeholder="confirm password here"><br>
+			<input type="button" onclick="regestrarion()" value="regester" id="regbut"><br>
+			Already regestered? click  <a onclick="logindiv()">HERE</a> to login.
+		</div>
+		<a id="main"></a>
+		<ul id=dat>
+			
+		</ul>
+		<div id="qna">
+		
+		</div>
+		<div id="askqna">
+		
+		</div>
+		
+	</body>	
+</html>

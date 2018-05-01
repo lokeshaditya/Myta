@@ -1,0 +1,32 @@
+body {
+	
+	background-color:#d4ea96;
+}
+h2 {
+	font-family: "Times New Roman", Times, serif;
+	text-align:center;
+	padding-top:50px
+}
+h3{
+	text-align:center;
+}
+#usname,#pass,#cpass,#regbut,#usid,#uspwd,#log{
+	text-align:center;
+	margin:10px;
+	padding:10px;
+}
+a{
+	color:red;
+}
+#login{
+	text-align:center;
+	
+}
+#log1{
+	padding-left:10px;
+}
+#main{
+	width:100%;
+	border-top:2px dotted green;
+	
+}
