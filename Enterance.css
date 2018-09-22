@@ -1,0 +1,43 @@
+#regestration{
+	border-right: 1px dashed #333;
+	background-color:#D9DADC;
+	opacity:0.9;
+}
+
+body{
+	background-color:#D9DADC;
+	background-image:url("../Occasions/calendar2.jpg");
+	background-repeat:no-repeat;
+	background-position: center;
+	background-size:cover;
+    
+}
+
+#img1{
+	background-color:white;
+}
+#tb1{
+	padding-bottom:0%;
+	margin-top:4%;
+}
+#tb2{
+	margin-top:3%;
+}
+#login{
+	padding-top:1%;
+	background-color:#D9DADC;
+	opacity:0.9;
+	padding-bottom:2.65%;
+}
+#reg{
+	
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:#e6005c;
+}
+a{
+	font-size:20px;
+	color:#025AA5;
+}
+#btn1{
+	text-align:center;
+}

@@ -1,0 +1,46 @@
+<html lang="en">
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="Enterance.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body >
+		<div id = "img1">
+			<img src="../Occasions/images2.jpg" class="img-rounded img-responsive center-block"  alt="Cinque Terre">
+		</div>
+		<div class = "container">
+			<div class = "row">
+				<div id = "regestration" class = "col-sm-6">
+					
+					<h2 id = "reg" class = "text-center">REGESTRATION</h2>
+					
+					<form action = "/Enter" method = "post" class="form-horizontal">
+						
+						<a >E-MAIL** : </a><input type="text" name="email" class = "form-control"><br>
+						<a>PASSWORD : </a><input type="password" name="pass1" class = "form-control"><br>
+						<a>CONFIRM PASSWORD :</a> <input type="password" name="pass2" class = "form-control"> <br>
+						<input type="submit" name="Regester" value="Regester" class = "btn btn-primary center-block btn-lg " id = "btn1"/>
+					</form>
+				</div>
+				
+				<div id = "login" class = "col-sm-6">
+					<h2 class = "text-center" id = "reg">LOGIN</h2>
+					<form action = "/Mypractice/Enter" method = "post">
+						
+						<a class = "text-primary ">E-MAIL :</a><div id = "tb1"> <input type="text" name="email1" class = "form-control"></div><br>
+						<a>PASSWORD :</a> <div id = "tb2"> <input type="password" name="passl" id = "tb2" class = "form-control"></div><br>
+						<input type="submit" name="login" value="login" class = "btn btn-primary btn-lg center-block" id = "btn1">
+					</form>
+				</div>
+			</div>	
+		</div>
+		<div class = "container" >
+			<h3><p class="bg-warning text-center ">** Please enter a <u>valid</u> email. All your remainders will be sent to it..</p></h3>
+		</div>
+	</body>
+</html>
