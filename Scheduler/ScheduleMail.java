@@ -13,10 +13,9 @@ public class ScheduleMail {
 
 		String SMTP_HOST_NAME = "smtp.gmail.com";
 		String SMTP_PORT = "465"; // or 567
-		//String toAddress = "lokeshaditya.3.6.9@outlook.com";
-		final String username = "kancharlar68";
+		final String username = "sendermail";
 		final String fromAddress = username + "@gmail.com";
-		final String password = "v2k@3220";
+		final String password = "password";
 		String subject = "Alert!!";// request.getParameter("subject");
 		String body = "Its "+name+"'s birth day tomorrow! Get ready and plan your day" ; // request.getParameter("body");
 
