@@ -52,9 +52,7 @@ public class RegEvent extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			pw.println("Please enter required details :-(");
-		}
-		
-		
+		}	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
