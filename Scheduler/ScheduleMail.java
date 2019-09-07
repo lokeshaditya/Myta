@@ -2,7 +2,6 @@ package Scheduler;
 
 import java.security.Security;
 import java.util.Date;
-
 import javax.mail.Transport;
 
 public class ScheduleMail {
