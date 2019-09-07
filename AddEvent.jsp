@@ -38,8 +38,7 @@
 				opacity:0.9;
 				padding:4%;
 			}
-			#img1{
-				
+			#img1{	
 			}
 			h3{
 				color:green;
