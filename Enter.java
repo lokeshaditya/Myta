@@ -42,7 +42,6 @@ public class Enter extends HttpServlet {
 						System.out.println("frm db="+rs.getString("pass"));
 						System.out.println("frm usr="+request.getParameter("passl"));
 						pw.println("Password didnot match");
-						
 					}
 				}
 			}
