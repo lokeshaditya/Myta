@@ -35,7 +35,6 @@
 		
 			// Update the count down every 1 second
 			var x = setInterval(function() {
-		
 				// Get todays date and time
 				var now = new Date().getTime();
 		
@@ -66,9 +65,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					
-					<th width=25% height=100px></th>
-					
+					<th width=25% height=100px></th>	
 					<th width=50% height=100px><div class="text-center" style="">
 						<h1 style="color:#e6005c;">Time to next occasion is:</h1>
 						<h2><p id="timer"></p></h2>
