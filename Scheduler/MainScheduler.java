@@ -14,8 +14,6 @@ import org.quartz.impl.StdSchedulerFactory;
 public class MainScheduler {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-
 		
 		JobDetail j = JobBuilder.newJob(Logic.class).build();
 
